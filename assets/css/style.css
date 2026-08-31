@@ -166,6 +166,7 @@ p{margin:0}
   position:relative;
   color:var(--texto-2);text-decoration:none;font-size:14.5px;
   padding-bottom:4px;
+  white-space:nowrap;
   transition:color .2s ease;
 }
 .nav a:hover{color:var(--texto)}
@@ -182,14 +183,21 @@ p{margin:0}
 .nav-cta{color:var(--azul-claro)}
 .nav-cta:hover{color:var(--papel)}
 
+/* The header is a lockup and a nav competing for one line. The descriptor
+   is what makes the lockup wide (268px with it, 114px without), so it is
+   the first thing to go — which is also the behaviour we want: on a narrow
+   screen the mark plus "Cerne" is the whole signature.
+   Breakpoints are measured, not guessed: the nav needs 433px, so it wraps
+   below roughly 790px while the descriptor is still present. */
+@media (max-width:1000px){
+  .nav{gap:22px}
+}
+@media (max-width:880px){
+  .lockup-desc{display:none}
+}
 @media (max-width:760px){
   .nav{gap:18px}
   .nav a:not(.nav-cta){display:none}
-}
-@media (max-width:560px){
-  .lockup{gap:11px}
-  .lockup-name{font-size:19px}
-  .lockup-desc{font-size:8.5px;letter-spacing:.16em}
 }
 
 /* ─────────────────────────── buttons ─────────────────────────── */
