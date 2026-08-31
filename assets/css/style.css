@@ -120,15 +120,18 @@ p{margin:0}
 /* Name + descriptor are one indivisible block, centred on the core
    rather than on the baseline (brand manual, section 03).           */
 .lockup{
-  display:inline-flex;align-items:center;gap:12px;
+  display:inline-flex;align-items:center;gap:14px;
   text-decoration:none;color:var(--texto);
 }
 .lockup-mark{color:var(--papel);--core:var(--azul-claro);flex:0 0 auto;display:block}
 .lockup-text{display:flex;flex-direction:column;justify-content:center}
-.lockup-name{font-family:var(--f-display);font-size:19px;font-weight:500;line-height:1}
+.lockup-name{font-family:var(--f-display);font-size:22px;font-weight:500;line-height:1}
+/* The gap between the name's baseline and the descriptor is fixed and
+   short — roughly 18% of the name's height — so the two read as one
+   block (brand manual, section 03). */
 .lockup-desc{
-  font-family:var(--f-mono);font-size:9px;letter-spacing:.2em;
-  color:var(--texto-3);line-height:1;margin-top:4px;white-space:nowrap;
+  font-family:var(--f-mono);font-size:10.5px;letter-spacing:.19em;
+  color:var(--texto-3);line-height:1;margin-top:5px;white-space:nowrap;
 }
 
 /* ─────────────────────────── header ─────────────────────────── */
@@ -182,7 +185,11 @@ p{margin:0}
 @media (max-width:760px){
   .nav{gap:18px}
   .nav a:not(.nav-cta){display:none}
-  .lockup-desc{display:none}
+}
+@media (max-width:560px){
+  .lockup{gap:11px}
+  .lockup-name{font-size:19px}
+  .lockup-desc{font-size:8.5px;letter-spacing:.16em}
 }
 
 /* ─────────────────────────── buttons ─────────────────────────── */
