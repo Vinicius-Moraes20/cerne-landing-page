@@ -1,0 +1,18 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# editors
+.vscode/
+.idea/
+*.swp
+
+# local notes and scratch
+*.local
+/scratch/
+
+# Working context — stays on disk, never published.
+# The repository holds only what GitHub Pages needs to serve the page.
+.claude/
+CLAUDE.md
+cerne-manual-da-marca.html
