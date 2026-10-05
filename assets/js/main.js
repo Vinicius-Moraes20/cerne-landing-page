@@ -36,7 +36,7 @@
       cancelReveal();
     } else {
       var targets = document.querySelectorAll(
-        '.section-head, .frente, .nucleo-inner, .etapa, ' +
+        '.section-head, .frente, .feature, .projeto, .nucleo-inner, .etapa, ' +
         '.contato-text, .canais, .etapas'
       );
 
@@ -59,7 +59,7 @@
         io.observe(el);
       });
 
-      /* Landing on a deep link (#processo, #contato) puts everything above
+      /* Landing on a deep link (#projetos, #contato) puts everything above
          the target off-screen, where it would never intersect. Show it. */
       window.addEventListener('load', function () {
         Array.prototype.forEach.call(targets, function (el) {

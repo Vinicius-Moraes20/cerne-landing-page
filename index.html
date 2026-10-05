@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Cerne | Pesquisa e Desenvolvimento</title>
-<meta name="description" content="Desenvolvemos sistemas embarcados, software de alto nível e prototipagem — do equipamento no chão de fábrica ao processo digital da sua empresa.">
+<meta name="description" content="Desenvolvemos sistemas embarcados, software de alto nível e prototipagem com impressão 3D paramétrica e usinagem de PCB — do equipamento no chão de fábrica ao processo digital da sua empresa.">
 <meta name="author" content="Cerne Pesquisa e Desenvolvimento">
 <meta name="theme-color" content="#22262A">
 
@@ -14,7 +14,7 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Cerne | Pesquisa e Desenvolvimento">
 <meta property="og:title" content="Cerne | Pesquisa e Desenvolvimento">
-<meta property="og:description" content="Sistemas embarcados, software de alto nível e prototipagem — do equipamento no chão de fábrica ao processo digital da empresa.">
+<meta property="og:description" content="Sistemas embarcados, software de alto nível e prototipagem com impressão 3D paramétrica e usinagem de PCB.">
 <meta property="og:image" content="assets/img/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -38,7 +38,7 @@
   "url": "https://cernepd.com/",
   "logo": "https://cernepd.com/assets/img/logo.svg",
   "image": "https://cernepd.com/assets/img/og-image.png",
-  "description": "Desenvolvimento de sistemas embarcados, software de alto nível e prototipagem — do equipamento no chão de fábrica ao processo digital da empresa.",
+  "description": "Desenvolvimento de sistemas embarcados, software de alto nível e prototipagem com impressão 3D paramétrica e usinagem de PCB — do equipamento no chão de fábrica ao processo digital da empresa.",
   "email": "comercial@cernepd.com",
   "telephone": "+55-51-99173-8113",
   "areaServed": { "@type": "Country", "name": "Brasil" },
@@ -47,7 +47,9 @@
     "Firmware",
     "Software sob medida",
     "Automação de processos digitais",
-    "Prototipagem eletrônica"
+    "Prototipagem eletrônica",
+    "Impressão 3D paramétrica",
+    "Usinagem de PCB para protótipos"
   ]
 }
 </script>
@@ -77,6 +79,13 @@
     </g>
     <circle cx="60" cy="60" r="11" fill="var(--core, #7FB5D6)"/>
   </symbol>
+  <!-- Placeholder glyph for photo slots still waiting for an image.
+       Same family as the card icons: one filled azul-claro core. -->
+  <symbol id="ph-glyph" viewBox="0 0 24 24">
+    <rect x="2.8" y="4.6" width="18.4" height="14.8" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M2.8 16.6l5.4-5.2 4.4 4.2 3-2.8 5.6 5.2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+    <circle cx="16.4" cy="9.2" r="1.9" fill="var(--core, #7FB5D6)"/>
+  </symbol>
 </svg>
 
 
@@ -93,7 +102,8 @@
 
     <nav class="nav" aria-label="Navegação principal">
       <a href="#escopo">O que fazemos</a>
-      <a href="#nucleo">O núcleo</a>
+      <a href="#prototipagem">Prototipagem</a>
+      <a href="#projetos">Projetos</a>
       <a href="#processo">Como trabalhamos</a>
       <a href="#contato" class="nav-cta">Contato</a>
     </nav>
@@ -114,8 +124,8 @@
       <h1>O núcleo dos sistemas que sustentam a operação.</h1>
       <p class="hero-sub">
         Desenvolvemos sistemas embarcados, software de alto nível e
-        prototipagem — do equipamento no chão de fábrica ao processo digital
-        da sua empresa.
+        protótipos físicos — com impressão 3D paramétrica e placas de
+        circuito usinadas na nossa própria bancada.
       </p>
       <div class="hero-actions">
         <a class="btn" href="#contato">Vamos conversar</a>
@@ -154,44 +164,125 @@
     <div class="frentes">
 
       <article class="frente">
-        <svg class="frente-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <rect x="7.6" y="7.6" width="8.8" height="8.8" rx="1.6" stroke="currentColor" stroke-width="1.5"/>
-          <path d="M12 7.6V2.8M12 16.4v4.8M7.6 12H2.8M16.4 12h4.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          <circle cx="12" cy="12" r="2.4" fill="var(--core)"/>
-        </svg>
-        <h3>Sistemas embarcados</h3>
-        <p>
-          Firmware feito sob a demanda do seu projeto. Avaliamos as restrições,
-          sugerimos a arquitetura que faz mais sentido para o caso e decidimos
-          junto com você. O código-fonte e a documentação vêm na entrega.
-        </p>
+        <figure class="media media-card">
+          <img src="assets/img/escopo/embarcados.jpg" srcset="assets/img/escopo/embarcados@2x.jpg 2x" alt="Render 3D de uma placa adaptadora para o módulo ESP32-S3-WROOM, com a marca da Cerne na serigrafia" width="360" height="225" loading="lazy" decoding="async">
+        </figure>
+        <div class="frente-body">
+          <svg class="frente-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="7.6" y="7.6" width="8.8" height="8.8" rx="1.6" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M12 7.6V2.8M12 16.4v4.8M7.6 12H2.8M16.4 12h4.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="12" cy="12" r="2.4" fill="var(--core)"/>
+          </svg>
+          <h3>Sistemas embarcados</h3>
+          <p>
+            Firmware feito sob a demanda do seu projeto. Avaliamos as restrições,
+            sugerimos a arquitetura que faz mais sentido para o caso e decidimos
+            junto com você. O código-fonte e a documentação vêm na entrega.
+          </p>
+        </div>
       </article>
 
       <article class="frente">
-        <svg class="frente-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <rect x="2.8" y="4.6" width="18.4" height="14.8" rx="2" stroke="currentColor" stroke-width="1.5"/>
-          <path d="M2.8 9.4h18.4" stroke="currentColor" stroke-width="1.5"/>
-          <path d="M7 13.4h9.2M7 16.4h5.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          <circle cx="6.3" cy="7" r="1.5" fill="var(--core)"/>
-        </svg>
-        <h3>Software de alto nível</h3>
-        <p>
-          Automação de processos digitais, integração entre sistemas e aplicações
-          sob medida, para empresas de qualquer porte.
-        </p>
+        <figure class="media media-card">
+          <img src="assets/img/escopo/software.png" srcset="assets/img/escopo/software@2x.png 2x" alt="Tela de cadastro de item do sistema de gestão da Cerne, com dados do componente e imagem" width="360" height="225" loading="lazy" decoding="async">
+        </figure>
+        <div class="frente-body">
+          <svg class="frente-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="2.8" y="4.6" width="18.4" height="14.8" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M2.8 9.4h18.4" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M7 13.4h9.2M7 16.4h5.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="6.3" cy="7" r="1.5" fill="var(--core)"/>
+          </svg>
+          <h3>Software de alto nível</h3>
+          <p>
+            Automação de processos digitais, integração entre sistemas e aplicações
+            sob medida, para empresas de qualquer porte.
+          </p>
+        </div>
       </article>
 
       <article class="frente">
-        <svg class="frente-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M8.6 4.4H5.4a1.8 1.8 0 0 0-1.8 1.8v11.6a1.8 1.8 0 0 0 1.8 1.8h3.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M15.4 4.4h3.2a1.8 1.8 0 0 1 1.8 1.8v11.6a1.8 1.8 0 0 1-1.8 1.8h-3.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          <circle cx="12" cy="12" r="2.7" fill="var(--core)"/>
-        </svg>
-        <h3>Prototipagem</h3>
-        <p>
-          Protótipos funcionais para descobrir se a ideia fecha — viabilidade,
-          custo e limites de projeto — antes de investir na produção em série.
-        </p>
+        <figure class="media media-card">
+          <img src="assets/img/escopo/prototipagem.jpg" srcset="assets/img/escopo/prototipagem@2x.jpg 2x" alt="Protótipo de bandeja de componentes para máquinas pick and place, impresso em 3D e recém-saído da impressora" width="360" height="225" loading="lazy" decoding="async">
+        </figure>
+        <div class="frente-body">
+          <svg class="frente-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M8.6 4.4H5.4a1.8 1.8 0 0 0-1.8 1.8v11.6a1.8 1.8 0 0 0 1.8 1.8h3.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M15.4 4.4h3.2a1.8 1.8 0 0 1 1.8 1.8v11.6a1.8 1.8 0 0 1-1.8 1.8h-3.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="12" cy="12" r="2.7" fill="var(--core)"/>
+          </svg>
+          <h3>Prototipagem</h3>
+          <p>
+            Protótipos funcionais para descobrir se a ideia fecha — viabilidade,
+            custo e limites de projeto — antes de investir na produção em série.
+            Peças em impressão 3D paramétrica e placas de circuito usinadas
+            aqui mesmo.
+          </p>
+          <a class="link frente-link" href="#prototipagem">Ver como prototipamos</a>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════ prototipagem (bancada) ═══════════════ -->
+<section class="section section-proto" id="prototipagem">
+  <div class="wrap">
+
+    <div class="section-head">
+      <p class="eyebrow">prototipagem</p>
+      <h2>Do arquivo à peça na mão, na nossa bancada.</h2>
+      <p class="section-lead">
+        Imprimimos as peças e usinamos as placas do protótipo aqui dentro. Cada
+        iteração sai sem esperar fornecedor — e o risco aparece cedo, enquanto
+        ainda é barato mudar.
+      </p>
+    </div>
+
+    <div class="features">
+
+      <article class="feature">
+        <figure class="media media-feature">
+          <img src="assets/img/prototipagem/impressao-3d.jpg" srcset="assets/img/prototipagem/impressao-3d@2x.jpg 2x" alt="Cabeçote de impressora 3D sobre a mesa, imprimindo uma peça em filamento preto" width="560" height="420" loading="lazy" decoding="async">
+        </figure>
+        <div class="feature-body">
+          <p class="feature-tag">impressão 3D</p>
+          <h3>Peças paramétricas, prontas para a próxima versão.</h3>
+          <p>
+            Modelamos cada peça de forma paramétrica: dimensões, folgas e
+            encaixes são variáveis do projeto, não medidas presas no desenho.
+            Mudou a placa, o sensor ou o conector? Ajustamos o parâmetro e a
+            peça nova sai da impressora.
+          </p>
+          <ul class="feature-list">
+            <li>Gabinetes e tampas para eletrônica</li>
+            <li>Suportes, fixações e encaixes</li>
+            <li>Variações de uma mesma peça para comparar</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="feature feature-rev">
+        <figure class="media media-feature">
+          <img src="assets/img/prototipagem/usinagem-pcb.jpg" srcset="assets/img/prototipagem/usinagem-pcb@2x.jpg 2x" alt="Fresadora CNC usinando uma placa de circuito de cobre presa à mesa" width="560" height="420" loading="lazy" decoding="async">
+        </figure>
+        <div class="feature-body">
+          <p class="feature-tag">usinagem de PCB <span class="badge">novo</span></p>
+          <h3>A placa do protótipo, fresada aqui mesmo.</h3>
+          <p>
+            Usinamos as placas de circuito do protótipo direto na bancada. O
+            circuito é montado e testado sem esperar a fabricação, e a placa só
+            segue para a produção industrial depois de provada.
+          </p>
+          <ul class="feature-list">
+            <li>Placas a partir do seu esquema ou do nosso</li>
+            <li>Circuito validado antes do pedido em série</li>
+            <li>Ajustes de layout entre uma iteração e a próxima</li>
+          </ul>
+        </div>
       </article>
 
     </div>
@@ -239,6 +330,131 @@
         mão.
       </p>
     </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════ projetos (portfólio) ═══════════════ -->
+<section class="section section-projetos" id="projetos">
+  <div class="wrap">
+
+    <div class="section-head">
+      <p class="eyebrow">projetos</p>
+      <h2>Alguns trabalhos que passaram pela bancada.</h2>
+      <p class="section-lead">
+        Projetos entregues para a indústria e para a mobilidade urbana — do
+        firmware embarcado à visão computacional, além da plataforma que
+        usamos para tocar a nossa própria produção.
+      </p>
+      <p class="clientes">
+        <span class="clientes-rot">clientes</span>
+        <span class="clientes-nome">Flesch Tech</span>
+        <span class="clientes-nome">Conecta</span>
+      </p>
+    </div>
+
+    <ul class="projetos">
+
+      <li class="projeto">
+        <figure class="media media-projeto">
+          <img src="assets/img/projetos/simdrive.jpg" srcset="assets/img/projetos/simdrive@2x.jpg 2x" alt="SimDrive: placa com ESP32-S3 dentro do gabinete impresso em 3D, ao lado da tampa e do cabo USB" width="360" height="270" loading="lazy" decoding="async">
+        </figure>
+        <p class="projeto-area">sistemas embarcados</p>
+        <h3>SimDrive</h3>
+        <dl class="projeto-meta">
+          <div><dt>cliente</dt><dd>Flesch Tech</dd></div>
+          <div><dt>nossa parte</dt><dd>firmware completo</dd></div>
+        </dl>
+        <p class="projeto-desc">
+          Solução embarcada para ambientes industriais que permite
+          inserir e gerenciar informações nos equipamentos usando
+          periféricos comuns, como teclado e mouse — uma interface
+          prática para operações que pedem mais flexibilidade na
+          interação com a máquina.
+        </p>
+      </li>
+
+      <li class="projeto">
+        <figure class="media media-projeto">
+          <!-- IMAGEM: assets/img/projetos/aim.jpg (360×270) + aim@2x.jpg (720×540), 4:3 -->
+          <div class="ph" role="img" aria-label="Foto em breve: AIM — Automated Inspection Machine">
+            <svg class="ph-glyph" width="28" height="28" aria-hidden="true"><use href="#ph-glyph"/></svg>
+            <span class="ph-cap">AIM — Automated Inspection Machine</span>
+          </div>
+        </figure>
+        <p class="projeto-area">visão computacional e IA</p>
+        <h3>AIM — Automated Inspection Machine</h3>
+        <dl class="projeto-meta">
+          <div><dt>cliente</dt><dd>Flesch Tech</dd></div>
+          <div><dt>nossa parte</dt><dd>maior parte do backend</dd></div>
+        </dl>
+        <p class="projeto-desc">
+          Máquina que inspeciona módulos eletrônicos com visão
+          computacional e inteligência artificial. Automatiza etapas
+          da inspeção, aponta possíveis falhas e aumenta a qualidade e
+          a confiabilidade dos produtos.
+        </p>
+      </li>
+
+      <li class="projeto">
+        <figure class="media media-projeto">
+          <img src="assets/img/projetos/pedal-sustentavel.jpg" srcset="assets/img/projetos/pedal-sustentavel@2x.jpg 2x" alt="Estação do Pedal Sustentável em Guaíba, com bicicletas compartilhadas presas ao totem" width="360" height="270" loading="lazy" decoding="async">
+        </figure>
+        <p class="projeto-area">firmware · mobilidade sustentável</p>
+        <h3>Pedal Sustentável</h3>
+        <dl class="projeto-meta">
+          <div><dt>cliente</dt><dd>Conecta</dd></div>
+          <div><dt>nossa parte</dt><dd>firmware</dd></div>
+        </dl>
+        <p class="projeto-desc">
+          Bicicletas compartilhadas para a população de Guaíba,
+          facilitando o acesso ao transporte alternativo e
+          incentivando hábitos mais saudáveis e sustentáveis. O
+          firmware embarcado é o que garante uma experiência de uso
+          prática e confiável.
+        </p>
+        <a class="link projeto-link" href="https://pedalars.org/" target="_blank" rel="noopener">Conheça o Pedal Sustentável</a>
+      </li>
+
+      <li class="projeto">
+        <figure class="media media-projeto">
+          <img src="assets/img/projetos/pick-to-light.jpg" srcset="assets/img/projetos/pick-to-light@2x.jpg 2x" alt="Render 3D do módulo eletrônico do sistema Pick to Light, com o módulo ESP32 e os conectores" width="360" height="270" loading="lazy" decoding="async">
+        </figure>
+        <p class="projeto-area">automação industrial</p>
+        <h3>Sistema Pick to Light</h3>
+        <dl class="projeto-meta">
+          <div><dt>cliente</dt><dd>Conecta</dd></div>
+          <div><dt>nossa parte</dt><dd>módulo eletrônico e firmware completos</dd></div>
+        </dl>
+        <p class="projeto-desc">
+          Coleta de materiais guiada por sinalização luminosa:
+          indicações visuais orientam o operador na separação dos
+          itens, deixando o processo mais rápido e preciso e reduzindo
+          erros.
+        </p>
+      </li>
+
+      <li class="projeto">
+        <figure class="media media-projeto">
+          <img src="assets/img/projetos/cerne-mes-erp.png" srcset="assets/img/projetos/cerne-mes-erp@2x.png 2x" alt="Cerne MES/ERP: estrutura de produto de uma placa eletrônica, com revisão aprovada, roteiro de produção e tempos de setup" width="360" height="270" loading="lazy" decoding="async">
+        </figure>
+        <p class="projeto-area">plataforma própria <span class="badge">em desenvolvimento</span></p>
+        <h3>Cerne MES/ERP</h3>
+        <dl class="projeto-meta">
+          <div><dt>cliente</dt><dd>uso interno</dd></div>
+          <div><dt>nossa parte</dt><dd>idealização e desenvolvimento</dd></div>
+        </dl>
+        <p class="projeto-desc">
+          Nossa plataforma para centralizar as operações de P&amp;D.
+          Padroniza e integra a produção de protótipos — da
+          organização dos projetos ao acompanhamento da fabricação de
+          peças impressas em 3D e módulos eletrônicos — com controle
+          dos processos e visão completa da fabricação.
+        </p>
+      </li>
+
+    </ul>
+
   </div>
 </section>
 

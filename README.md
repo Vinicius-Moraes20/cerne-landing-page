@@ -23,8 +23,21 @@ brand manual, `CLAUDE.md` and `.claude/` stay on disk and are git-ignored.
         ├── logo.svg              # full mark, dark surfaces
         ├── logo-claro.svg        # full mark, light surfaces
         ├── apple-touch-icon.png  # 180x180
-        └── og-image.png          # 1200x630 social preview
+        ├── og-image.png          # 1200x630 social preview
+        ├── escopo/               # service cards, 360x225 + @2x (16:10)
+        ├── prototipagem/         # 3D printing and PCB milling, 560x420 + @2x (4:3)
+        └── projetos/             # portfolio, <project-slug>, 360x270 + @2x (4:3)
 ```
+
+## Photos
+
+Every photo sits in a `.media` frame that fixes its aspect ratio. A slot that
+has no photo yet holds a `.ph` placeholder; the file it expects is named in the
+`<!-- IMAGEM: … -->` comment above it. To fill a slot, replace the `.ph` div
+with `<img src="name.jpg" srcset="name@2x.jpg 2x" alt="…" width="…" height="…" loading="lazy">`.
+Export each photo at the size it is shown (1x) and at twice that (2x) rather
+than one large file: a browser shrinking a big image 3-4x aliases fine detail
+and text. Screenshots go in PNG, photos in JPEG.
 
 ## Running locally
 
@@ -50,8 +63,10 @@ three widely spaced grounds used in alternation.
 | Section | Ground | Structure |
 |---|---|---|
 | Topo | `#22262A` base | Open ground, the mark at full size |
-| Escopo | `#131619` deepest | Raised cards, `#2E3338`, with icons |
+| Escopo | `#131619` deepest | Raised cards, `#2E3338`, photo on top and icon |
+| Prototipagem | `#22262A` base | Alternating photo/text rows, no cards |
 | O núcleo | `#1B4965` azul profundo | Full colour band with the graphic pattern |
+| Projetos | `#131619` deepest | Photo-led tiles, text under the photo, no card surface |
 | Processo | `#22262A` base | Numbered badges on a connecting rail |
 | Contato | `#131619` deepest | Raised panel holding the channels |
 

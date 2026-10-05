@@ -187,8 +187,10 @@ p{margin:0}
    is what makes the lockup wide (268px with it, 114px without), so it is
    the first thing to go — which is also the behaviour we want: on a narrow
    screen the mark plus "Cerne" is the whole signature.
-   Breakpoints are measured, not guessed: the nav needs 433px, so it wraps
-   below roughly 790px while the descriptor is still present. */
+   Breakpoints are measured, not guessed: with five links the nav needs
+   about 548px at the default gap and 525px at 22px, so the descriptor must
+   go below 880px; checked on one line at 1100, 1000, 900, 881, 800, 761
+   and 700px. */
 @media (max-width:1000px){
   .nav{gap:22px}
 }
@@ -291,18 +293,91 @@ p{margin:0}
   gap:20px;
 }
 .frente{
+  display:flex;flex-direction:column;
   background:var(--elevado);
   border:1px solid var(--linha);
   border-radius:12px;
-  padding:32px 28px 34px;
+  overflow:hidden;
   transition:border-color .25s ease, transform .25s ease;
 }
 .frente:hover{border-color:var(--linha-forte);transform:translateY(-3px)}
-.frente-icon{display:block;margin-bottom:24px;color:rgba(238,242,245,.74);--core:var(--azul-claro)}
+.frente-body{display:flex;flex-direction:column;align-items:flex-start;flex:1;padding:28px 28px 34px}
+/* the photo sits above, so the icon steps down to a label-sized mark */
+.frente-icon{display:block;width:28px;height:28px;margin-bottom:18px;color:rgba(238,242,245,.74);--core:var(--azul-claro)}
 .frente h3{margin-bottom:12px}
 .frente p{color:var(--texto-2);font-size:15px;line-height:1.68}
+/* pinned to the card's foot; the paragraph's margin keeps a minimum gap */
+.frente-link{margin-top:auto;font-size:14.5px}
+.frente-body p:has(+ .frente-link){margin-bottom:20px}
 
 @media (prefers-reduced-motion:reduce){ .frente:hover{transform:none} }
+
+/* ── photo slots ──────────────────────────────────────────────── */
+/* Every photo on the page sits in a .media frame that fixes its
+   aspect ratio, so the layout never shifts while images load and a
+   missing image never collapses the slot. Until a photo arrives the
+   frame holds a .ph placeholder naming the file it expects; to fill
+   a slot, replace the .ph div with
+     <img src="…" alt="…" width="…" height="…" loading="lazy">     */
+.media{position:relative;margin:0;overflow:hidden;background:var(--elevado)}
+.media-card{aspect-ratio:16/10;border-bottom:1px solid var(--linha)}
+.media-feature{aspect-ratio:4/3;border-radius:12px;border:1px solid var(--linha)}
+.media-projeto{aspect-ratio:4/3;border-radius:10px;border:1px solid var(--linha)}
+.media > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+
+.ph{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:8px;padding:18px;text-align:center;
+  color:rgba(238,242,245,.57);
+  /* faint hatching reads as "slot" rather than as a finished surface */
+  background:repeating-linear-gradient(135deg,transparent 0 13px,rgba(238,242,245,.025) 13px 14px);
+}
+.ph-glyph{display:block;margin-bottom:4px;color:rgba(238,242,245,.5);--core:var(--azul-claro)}
+.ph-cap{font-size:13.5px;line-height:1.4;max-width:28ch}
+.ph-file{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.02em;color:rgba(238,242,245,.57);word-break:break-all}
+
+/* ── prototipagem · alternating photo rows on the base ground ─── */
+/* A different kind of surface from the card grid above it: no
+   cards, the photo carries the row and the text sits beside it. */
+.features{display:flex;flex-direction:column;gap:clamp(56px,8vw,96px)}
+.feature{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,.92fr);
+  gap:clamp(32px,6vw,72px);
+  align-items:center;
+}
+.feature-rev .media{order:2}
+.feature-tag{
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--azul-claro);
+  display:flex;align-items:center;gap:10px;
+}
+.badge{
+  font-size:10px;letter-spacing:.14em;
+  color:var(--grafite);background:var(--azul-claro);
+  padding:3px 8px 2px;border-radius:999px;line-height:1.4;
+}
+.feature h3{font-size:clamp(21px,2.4vw,26px);line-height:1.2;margin-top:16px;max-width:22ch}
+.feature-body > p:not(.feature-tag){color:var(--texto-2);font-size:16px;margin-top:16px;max-width:52ch}
+.feature-list{list-style:none;margin:24px 0 0;padding:0;border-top:1px solid var(--linha)}
+.feature-list li{
+  position:relative;
+  padding:12px 0 12px 22px;
+  border-bottom:1px solid var(--linha);
+  font-size:15px;color:var(--texto);
+}
+/* a small core marks each item — the brand's dot, not a generic bullet */
+.feature-list li::before{
+  content:"";position:absolute;left:2px;top:50%;
+  width:7px;height:7px;margin-top:-3.5px;border-radius:50%;
+  background:var(--azul-claro);
+}
+
+@media (max-width:820px){
+  .feature{grid-template-columns:1fr}
+  .feature-rev .media{order:0}
+}
 
 /* ── núcleo · full colour band ────────────────────────────────── */
 /* Azul profundo behind the graphic pattern is the manual's own
@@ -332,6 +407,51 @@ p{margin:0}
 .section-nucleo h2{margin-top:18px;max-width:18ch}
 .section-nucleo .prose{margin-top:26px}
 .section-nucleo .prose p{color:rgba(238,242,245,.78)}
+
+/* ── projetos · photo-led tiles on the deepest ground ──────────── */
+/* No card surface: the photo is the tile, the text sits under it.
+   That keeps it a different kind of surface from the service cards. */
+.section-projetos{background:var(--fundo)}
+.projetos{
+  list-style:none;margin:0;padding:0;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:clamp(36px,4vw,48px) 24px;
+}
+.projeto .media{transition:border-color .25s ease}
+.projeto:hover .media{border-color:var(--linha-forte)}
+.projeto-area{
+  font-family:var(--f-mono);font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--azul-claro);margin-top:18px;
+}
+.projeto-area{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.projeto h3{font-size:18px;margin-top:8px}
+/* client and our share of the work, stated before the description so
+   they read at a glance */
+.projeto-meta{margin:12px 0 0;display:flex;flex-direction:column;gap:4px;font-size:14px}
+.projeto-meta div{display:flex;gap:10px;align-items:baseline}
+.projeto-meta dt{
+  flex:0 0 92px;
+  font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--texto-3);
+}
+.projeto-meta dd{margin:0;color:var(--texto)}
+
+/* client strip under the section lead */
+.clientes{
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
+  margin-top:26px;
+}
+.clientes-rot{
+  font-family:var(--f-mono);font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--texto-3);margin-right:4px;
+}
+.clientes-nome{
+  font-family:var(--f-display);font-size:15px;font-weight:500;
+  padding:6px 14px;border:1px solid var(--linha-forte);border-radius:999px;
+}
+.projeto-desc{color:var(--texto-2);font-size:14.5px;line-height:1.62;margin-top:8px}
+.projeto-link{display:inline-block;margin-top:12px;font-size:14px}
 
 /* ── processo · connected rail ────────────────────────────────── */
 /* The steps are a real sequence, so the rail is information: it is
@@ -445,6 +565,8 @@ p{margin:0}
 
 .js .section-head,
 .js .frente,
+.js .feature,
+.js .projeto,
 .js .nucleo-inner,
 .js .etapa,
 .js .contato-text,
@@ -476,6 +598,8 @@ p{margin:0}
 /* ── failsafes ─────────────────────────────────────────────── */
 .js.reveal-off .section-head,
 .js.reveal-off .frente,
+.js.reveal-off .feature,
+.js.reveal-off .projeto,
 .js.reveal-off .nucleo-inner,
 .js.reveal-off .etapa,
 .js.reveal-off .contato-text,
@@ -490,6 +614,8 @@ p{margin:0}
   .js .hero-copy .eyebrow::before{animation:none}
   .js .section-head,
   .js .frente,
+  .js .feature,
+  .js .projeto,
   .js .nucleo-inner,
   .js .etapa,
   .js .contato-text,
